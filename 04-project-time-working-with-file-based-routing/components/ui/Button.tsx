@@ -2,14 +2,22 @@ import Link from "next/link";
 import classes from "./Button.module.css";
 
 interface Props {
-  link: string;
+  link?: string;
+  handleOnClick?: () => void;
   children: React.ReactNode;
 }
 
-export default function Button({ link, children }: Props) {
+export default function Button({ link, handleOnClick, children }: Props) {
+  if (!!link) {
+    return (
+      <Link href={link} className={classes.btn}>
+        {children}
+      </Link>
+    );
+  }
   return (
-    <Link href={link} className={classes.btn}>
+    <button className={classes.btn} onClick={handleOnClick}>
       {children}
-    </Link>
+    </button>
   );
 }
