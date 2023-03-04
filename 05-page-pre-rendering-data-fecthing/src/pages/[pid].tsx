@@ -1,15 +1,17 @@
 import path from "path";
 import fs from "fs/promises";
 import { Product } from ".";
+import type {
+  InferGetStaticPropsType,
+  GetStaticProps,
+  GetStaticPropsContext,
+} from "next";
 
-interface Props {
-  loadedProduct: Product;
-}
-
-export default function ProductDetailPage({ loadedProduct }: Props) {
-  console.log(loadedProduct);
+export default function ProductDetailPage({
+  loadedProduct,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   if (!loadedProduct) {
-    <div>...Something is wrong</div>;
+    return <p>...Something is wrong</p>;
   }
   return (
     <div>
@@ -27,10 +29,10 @@ async function getData() {
   return data;
 }
 
-export async function getStaticProps(context: any) {
-  const { params } = context;
-
-  const productId = params.pid;
+export const getStaticProps: GetStaticProps<{
+  loadedProduct: Product;
+}> = async ({ params }: GetStaticPropsContext) => {
+  const productId = params!.pid;
 
   const data = await getData();
 
@@ -47,27 +49,17 @@ export async function getStaticProps(context: any) {
       loadedProduct: product,
     },
   };
-}
+};
 
 export async function getStaticPaths() {
   const data = await getData();
 
-  const ids: string[] = data.products.map((product: Product) => product.id);
-
-  const pathsWithParams = ids.map((id) => ({
-    params: {
-      pid: id,
-    },
+  const paths = data.products.map((product: Product) => ({
+    params: { pid: product.id },
   }));
 
   return {
-    paths: pathsWithParams,
-    //   [
-    //     { params: { pid: "p1" } },
-    //     { params: { pid: "p2" } },
-    //     // { params: { pid: "p3" } },
-    //   ],
-
+    paths,
     // if fallback is true, we can leave out some pages that not pre-generated
     // parameters that are not listed in the above will be still considered as valid.
     // those pages will be generated as just in time when a request reaches the server
