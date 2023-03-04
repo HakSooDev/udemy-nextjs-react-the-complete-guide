@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs/promises";
-import { Product } from ".";
+import { Product } from "..";
 import type {
   InferGetStaticPropsType,
   GetStaticProps,

@@ -13,7 +13,7 @@ export default function HomePage({ products }: Props) {
     <ul>
       {products.map((product) => (
         <li key={product.id}>
-          <Link key={product.id} href={`/${product.id}`}>
+          <Link key={product.id} href={`/product/${product.id}`}>
             {product.title}
           </Link>
         </li>
