@@ -1,8 +1,8 @@
 import AddressIcon from "components/icons/AddressIcon";
 import ArrowRightIcon from "components/icons/ArrowRightIcon";
 import DateIcon from "components/icons/DateIcon";
-import Button from "components/ui/button";
-import { Event } from "dummy-data";
+import Button from "components/ui/Button";
+import { Event } from "type";
 import classes from "./EventItem.module.css";
 
 interface Props {

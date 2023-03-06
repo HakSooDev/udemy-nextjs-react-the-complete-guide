@@ -1,5 +1,5 @@
 import EventItem from "./EventItem";
-import { Event } from "dummy-data";
+import { Event } from "type";
 import classes from "./EventList.module.css";
 
 interface Props {
