@@ -1,20 +1,23 @@
+## Section 6: Project Time: Page Pre-rendering & Data Fetching
 
+Practiced making SSG, ISG, SSR and CSR pages.
 
-## Next.js & React - The Complete Guide Section 
+- Homepage (ISG)
+  - 
+  It is important landing page. SEO must be good. However, it should be updated with the latest data in certain frequency. 
 
-### Section 4: Project Time: Working with File-based Routing
-
-Learned pages & file-based routing
-
-![image](https://user-images.githubusercontent.com/76464363/222178917-dbfb577b-194c-4344-b20f-c863491418e4.png)
-![image](https://user-images.githubusercontent.com/76464363/222179202-dc5f0e63-233a-4d78-8cdb-3c46bd492ea2.png)
-![image](https://user-images.githubusercontent.com/76464363/222178967-7efaeaee-aca6-4ce2-8bca-7c9a7dadc29b.png)
-![image](https://user-images.githubusercontent.com/76464363/222179020-1610e877-e22f-4d0f-a1d1-9946298115a7.png)
-![image](https://user-images.githubusercontent.com/76464363/222179298-a0a653a3-6f84-46bd-b49e-7de8a8575744.png)
-
-
-
-
-
-
-
+- All Events Page (ISG)
+  - 
+  Similar with Homepage
+  
+- Event Detail Page (ISG)
+  - 
+   dynamic page with ISG. 
+   Since there could be many events, it is not a good idea to make all pregenerated event pages. (In my case, I only made pregenerated pages with featured
+   events which will be most likely to be visited). Unfeatured event page will be pregenerated as request.
+   
+- Filtered Events Page (SSR or CSR)
+  - 
+  It is not easy to build all of pages with all the possible combinations of filter cases.
+  Also, SEO is not very important for filtering feature. It is good idea to use SSR. 
+  However, note that CSR can be used for this page as well. 
