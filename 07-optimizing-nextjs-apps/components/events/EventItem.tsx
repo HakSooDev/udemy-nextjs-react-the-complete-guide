@@ -2,6 +2,7 @@ import AddressIcon from "components/icons/AddressIcon";
 import ArrowRightIcon from "components/icons/ArrowRightIcon";
 import DateIcon from "components/icons/DateIcon";
 import Button from "components/ui/Button";
+import Image from "next/image";
 import { Event } from "type";
 import classes from "./EventItem.module.css";
 
@@ -22,7 +23,7 @@ export default function EventItem({ event }: Props) {
 
   return (
     <li className={classes.item}>
-      <img src={`/${image}`} alt={title} />
+      <Image src={`/${image}`} alt={title} width={360} height={160} />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{title}</h2>
