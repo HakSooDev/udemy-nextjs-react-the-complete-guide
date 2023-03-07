@@ -1,23 +1,17 @@
-## Section 6: Project Time: Page Pre-rendering & Data Fetching
+## Section 7: Optimizing NextJS Apps
 
-Practiced making SSG, ISG, SSR and CSR pages.
+Practiced how to optimize NextJs Apps.
 
-- Homepage (ISG)
+- Next JS Head component
   - 
-  It is important landing page. SEO must be good. However, it should be updated with the latest data in certain frequency. 
+  It helps optimizing meta data (tags inside head section such as title, meta description) <br/>
+  It helps setting up different pages with different meta data
 
-- All Events Page (ISG)
+- Next JS Image component 
   - 
-  Similar with Homepage
+  It helps optimizing image (cache, getting optimized small images, lazy loading by default, and so on)
   
-- Event Detail Page (ISG)
+- _document
   - 
-   dynamic page with ISG. 
-   Since there could be many events, it is not a good idea to make all pregenerated event pages. (In my case, I only made pregenerated pages with featured
-   events which will be most likely to be visited). Unfeatured event page will be pregenerated as request.
+   It may be useful if you want to edit initial html doc or add html tag outside of rendering range of NextJs.
    
-- Filtered Events Page (SSR or CSR)
-  - 
-  It is not easy to build all of pages with all the possible combinations of filter cases.
-  Also, SEO is not very important for filtering feature. It is good idea to use SSR. 
-  However, note that CSR can be used for this page as well. 
