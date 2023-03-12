@@ -29,6 +29,8 @@ export default function handler(req, res) {
     fs.writeFileSync(filePath, JSON.stringify(data));
     res.status(201).json({ message: "Success!", feedback: newFeedback });
   } else {
-    res.status(200).json({ message: "This works!" });
+    const filePath = buildFeedbackPath();
+    const data = extractFeedback(filePath);
+    res.status(200).json({ feedback: data });
   }
 }
