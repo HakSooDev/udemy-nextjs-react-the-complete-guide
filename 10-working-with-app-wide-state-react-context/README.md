@@ -1,19 +1,5 @@
-## Section 9: Project Time: API Routes
+## Section 10: Working with App-wide State (React Context)
 
-Practiced Next JS API Routes <br/>
-Connected with real database (MongoDB)<br/>
-Learned error handling <br/>
-Learned request and response<br/>
+Handled global states by using React Context (useContext, createContect) 
 
-### Dynamic API routes
-```
-GET api/comments/{eventId}
-POST api/comments/{eventId}
-```
-
-
-### Static API routes
-```
-POST /api/newsletter
-```
-
+Note that it is nothing specific Next Js specific. 
