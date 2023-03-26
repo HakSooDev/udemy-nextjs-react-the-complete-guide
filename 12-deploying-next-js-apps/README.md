@@ -1,31 +1,52 @@
-## Section 11: Complete App Example: Build a Full Blog A to Z
+## Section 12: Deploying NextJS Apps
 
-Built a full blog from scratch <br/>
-Rendered Markdown as JSX <br/>
-Connected with real database (MongoDB) <br/>
+Learned about deployment <br/>
+Learned environment variables <br/>
+Learned how to deploy to Vercel <br/>
+Deployed the blog <br/>
 
-### Home Page (SSG)
-- Page that shows brief introduction of blog
-- It shows featured posts
+https://udemy-nextjs-react-the-complete-guide-haksoodev.vercel.app/ <br/>
 
-![home-page](https://user-images.githubusercontent.com/76464363/227231318-c836a31d-5c91-4740-8e34-fbe04cf1a54c.png)
-
-### Post Detail Page (SSG)
-- Page that shows a post detail
-- It renders markdown file that is stored in posts folder
-- It can show code snippets and images nicely
-
-![post-detail-page](https://user-images.githubusercontent.com/76464363/227233323-04fa6039-9aa7-4f72-9b98-72995dcad266.png)
+![image](https://user-images.githubusercontent.com/76464363/227778220-15c70ba4-94e7-4f94-8c34-4df1b7713d40.png)
 
 
-### All Posts Page (SSG)
-- Page that shows all posts
+## Deployment
 
-![all-posts-page](https://user-images.githubusercontent.com/76464363/227235662-46d5eb93-6b6d-4c18-82e1-850fd68d783e.png)
+### Two Deployment Options
 
-### Contact Page (SSG)
-- Page that submit contact form
-- It is connected with MongoDB, and submitted form will be stored in MongoDB
-- User can get notification whether form is submitted successfully or not
+#### 1. **Standard Build (next build)**
 
-![image](https://user-images.githubusercontent.com/76464363/227237053-3bdcc9e6-b9f4-4ea1-a3ce-002c4c9122ee.png)
+- Produces optimized production bundles and a SERVER-SIDE app
+    - Note that this result requires NodeJS server while react app does not need this
+    - This is why you cannot just take this output and put it on static host (not like React)
+- Pages are pre-rendered (if possible) but NodeJS server is required for API routes, server-side pages and page revalidation
+- Re-deploy needed if code changes or you do not use revalidation and need page updates
+
+#### 2. Full Static Build **(next export)**
+
+- Produces 100% static app (HTML, CSS, JS): NO NodeJS server required
+    - deployment and hosting is easier because your host does not have to know NodeJS
+- However, It does not support SERVER-SIDE feature
+    - Does not work if your app uses API routes, server-side pages or wants to use page revalidation
+- Re-deploy for all code and content changes
+
+![Untitled](https://user-images.githubusercontent.com/76464363/227778298-ff6de2ab-0003-42aa-b66d-cdc8dae6be5a.png)
+
+So if our app uses NextJS server side feature, we must go with option 1 since our host should be able to run NodeJS to support NextJS SERVER-SIDE feature.
+
+However, if our app does not use it, option 2 may be good to use. 
+
+### Deployment Steps & Considerations
+
+1. Add page metadata, optimize code, remove unnecessary dependecies (Try to make app as small as possible)
+2. Use environment variables for variable data (e.g. database credentials, API keys, …)
+3. Do a test build and test the production-ready app locally or on some test server
+4. Deploy!
+
+## Environment variables
+Environment variables are variables that used to provide different configures in different environments. <br/>
+They are typically in .env file or configure file.<br/>
+However, it is important to be aware of that these values can often cause security issue.<br/>
+For example, if unauthorized people can view the file, it will cause security issue. <br/>
+In this case, if environment variables can be accessed by unauthorized people, you must be able to rule out such as managing accessing IP address.<br/>
+Also, using hosting providers built-in environment variables will be good idea as well.<br/>
