@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import classes from "./main-navigation.module.css";
 
 function MainNavigation() {
+  const { data: session, status } = useSession();
+  console.log(session);
+  console.log(status);
   return (
     <header className={classes.header}>
       <Link href="/">
