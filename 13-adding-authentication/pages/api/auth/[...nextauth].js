@@ -10,8 +10,7 @@ export default NextAuth({
   },
   providers: [
     CredentialsProvider({
-      name: "Credentials a",
-
+      name: "Credentials",
       async authorize(credentials) {
         const client = await connectToDatabase();
 
@@ -37,8 +36,23 @@ export default NextAuth({
         }
 
         client.close();
-        return { email: user.email, gppd: "" };
+        return { email: user.email };
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, trigger, session }) {
+      // add payload madeBy in token
+      token.madeBy = "HakSoo";
+
+      return token;
+    },
+    async session({ session, token }) {
+      // add payload payload madeBy in session
+
+      session.user.example = token.madeBy;
+
+      return session;
+    },
+  },
 });
