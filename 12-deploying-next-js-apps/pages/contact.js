@@ -6,7 +6,7 @@ function ContactPage() {
     <>
       <Head>
         <title>Contact me</title>
-        <meta name="description" content="Send me your message!" />
+        <meta name="description" content="Send me your message!!" />
       </Head>
 
       <ContactForm />
